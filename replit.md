@@ -77,7 +77,7 @@ The "Start application" workflow runs:
 ```bash
 npm run dev
 ```
-This starts both Express backend (port 5000) and Vite dev server.
+This starts both Express backend (port 4001) and Vite dev server.
 
 ## Recent Changes
 - **November 26, 2024**: Initial website launch with all core features

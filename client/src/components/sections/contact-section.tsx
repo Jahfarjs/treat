@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,7 +21,6 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { contactFormSchema, type ContactFormData } from "@shared/schema";
-import { apiRequest } from "@/lib/queryClient";
 import {
   Phone,
   Mail,
@@ -31,12 +28,10 @@ import {
   Clock,
   Youtube,
   MessageCircle,
-  Send,
 } from "lucide-react";
 
 export default function ContactSection() {
   const { toast } = useToast();
-  const [sendMethod, setSendMethod] = useState<"whatsapp" | "email">("whatsapp");
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -51,39 +46,15 @@ export default function ContactSection() {
     },
   });
 
-  const contactMutation = useMutation({
-    mutationFn: async (data: ContactFormData) => {
-      return await apiRequest("POST", "/api/contact", data);
-    },
-    onSuccess: () => {
-      toast({
-        title: "Message sent successfully!",
-        description: "We'll get back to you within 2 hours.",
-      });
-      form.reset();
-    },
-    onError: () => {
-      toast({
-        title: "Failed to send message",
-        description: "Please try again or contact us directly.",
-        variant: "destructive",
-      });
-    },
-  });
-
   const onSubmit = (data: ContactFormData) => {
-    if (sendMethod === "whatsapp") {
-      const message = `Hello! I'm interested in your catering services.\n\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nEvent Type: ${data.eventType}\n${data.eventDate ? `Event Date: ${data.eventDate}\n` : ""}${data.guestCount ? `Guest Count: ${data.guestCount}\n` : ""}Message: ${data.message}`;
-      const whatsappUrl = `https://wa.me/917356200789?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, "_blank");
-      form.reset();
-      toast({
-        title: "Opening WhatsApp",
-        description: "Your message has been prepared for WhatsApp.",
-      });
-    } else {
-      contactMutation.mutate(data);
-    }
+    const message = `Hello! I'm interested in your catering services.\n\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nEvent Type: ${data.eventType}\n${data.eventDate ? `Event Date: ${data.eventDate}\n` : ""}${data.guestCount ? `Guest Count: ${data.guestCount}\n` : ""}Message: ${data.message}`;
+    const whatsappUrl = `https://wa.me/917356200789?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+    form.reset();
+    toast({
+      title: "Opening WhatsApp",
+      description: "Your message has been prepared for WhatsApp.",
+    });
   };
 
   const contactInfo = [
@@ -290,28 +261,14 @@ export default function ContactSection() {
                     )}
                   />
 
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <Button
-                      type="submit"
-                      className="flex-1"
-                      onClick={() => setSendMethod("whatsapp")}
-                      data-testid="button-send-whatsapp"
-                    >
-                      <MessageCircle className="w-4 h-4 mr-2" />
-                      Send via WhatsApp
-                    </Button>
-                    <Button
-                      type="submit"
-                      variant="outline"
-                      className="flex-1"
-                      onClick={() => setSendMethod("email")}
-                      disabled={contactMutation.isPending}
-                      data-testid="button-send-email"
-                    >
-                      <Send className="w-4 h-4 mr-2" />
-                      {contactMutation.isPending ? "Sending..." : "Send Email"}
-                    </Button>
-                  </div>
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    data-testid="button-send-whatsapp"
+                  >
+                    <MessageCircle className="w-4 h-4 mr-2" />
+                    Send via WhatsApp
+                  </Button>
                 </form>
               </Form>
             </CardContent>

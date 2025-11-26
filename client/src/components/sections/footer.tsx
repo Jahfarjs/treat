@@ -21,12 +21,12 @@ export default function Footer({ onNavigate }: FooterProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div className="lg:col-span-1">
-            <h3
-              className="font-serif text-2xl font-bold text-foreground mb-4"
+            <img
+              src="/logo.png"
+              alt="Treat Caters & Events"
+              className="h-28 w-auto mb-4"
               data-testid="text-footer-brand"
-            >
-              Treat Caters & Events
-            </h3>
+            />
             <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
               Creating unforgettable moments through exceptional catering and
               event management services since 2009.

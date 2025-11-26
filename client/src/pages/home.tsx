@@ -68,13 +68,11 @@ export default function Home() {
               className="flex items-center gap-2 group"
               data-testid="button-logo"
             >
-              <span
-                className={`font-serif text-2xl font-bold transition-colors ${
-                  isScrolled ? "text-primary" : "text-white"
-                }`}
-              >
-                Treat Caters & Events
-              </span>
+              <img
+                src="/logo.png"
+                alt="Treat Caters & Events"
+                className="h-24 sm:h-28 pb-5 w-auto transition-opacity group-hover:opacity-80"
+              />
             </button>
 
             <div className="hidden md:flex items-center gap-8">
