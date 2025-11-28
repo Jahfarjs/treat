@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroImage from "@assets/generated_images/hero_elegant_catered_event.png";
+import heroImage from "@assets/generated_images/hero_elegant_catered_event.webp";
 
 interface HeroSectionProps {
   onCtaClick: () => void;

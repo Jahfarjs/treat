@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import weddingBuffet from "@assets/generated_images/wedding_buffet_elegant_display.png";
-import corporateEvent from "@assets/generated_images/corporate_event_catering_setup.png";
-import birthdayDessert from "@assets/generated_images/birthday_celebration_dessert_table.png";
-import appetizers from "@assets/generated_images/gourmet_appetizers_close-up.png";
-import thali from "@assets/generated_images/traditional_south_indian_thali.png";
-import gardenEvent from "@assets/generated_images/garden_event_elegant_setup.png";
-import fineDining from "@assets/generated_images/fine_dining_plated_course.png";
-import culturalEvent from "@assets/generated_images/cultural_celebration_vibrant_decorations.png";
+import weddingBuffet from "@assets/generated_images/wedding_buffet_elegant_display.webp";
+import corporateEvent from "@assets/generated_images/corporate_event_catering_setup.webp";
+import birthdayDessert from "@assets/generated_images/birthday_celebration_dessert_table.webp";
+import appetizers from "@assets/generated_images/gourmet_appetizers_close-up.webp";
+import thali from "@assets/generated_images/traditional_south_indian_thali.webp";
+import gardenEvent from "@assets/generated_images/garden_event_elegant_setup.webp";
+import fineDining from "@assets/generated_images/fine_dining_plated_course.webp";
+import culturalEvent from "@assets/generated_images/cultural_celebration_vibrant_decorations.webp";
 
 export default function GallerySection() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);

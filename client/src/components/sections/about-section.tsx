@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Users, Award, Heart, Star } from "lucide-react";
-import teamImage from "@assets/generated_images/professional_catering_team_photo.png";
+import teamImage from "@assets/generated_images/professional_catering_team_photo.webp";
 
 export default function AboutSection() {
   const features = [
