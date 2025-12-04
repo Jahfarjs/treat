@@ -56,6 +56,51 @@ export default function GallerySection() {
     },
   ];
 
+  const publicImages = [
+    {
+      src: "/IMG_2965.webp",
+      alt: "Event catering showcase",
+      title: "Event Showcase",
+      description: "Beautifully presented catering for special occasions",
+    },
+    {
+      src: "/IMG_2966.webp",
+      alt: "Culinary presentation",
+      title: "Culinary Art",
+      description: "Expertly crafted dishes with attention to detail",
+    },
+    {
+      src: "/IMG_2967.webp",
+      alt: "Event setup display",
+      title: "Event Setup",
+      description: "Elegant arrangements for memorable celebrations",
+    },
+    {
+      src: "/IMG_2968.webp",
+      alt: "Food presentation",
+      title: "Food Presentation",
+      description: "Stunning visual presentation of our culinary creations",
+    },
+    {
+      src: "/IMG_2969.webp",
+      alt: "Catering display",
+      title: "Catering Display",
+      description: "Professional catering services for all occasions",
+    },
+    {
+      src: "/IMG_2970.webp",
+      alt: "Event decoration",
+      title: "Event Decoration",
+      description: "Beautifully decorated venues for your special day",
+    },
+    {
+      src: "/IMG_2971.webp",
+      alt: "Culinary excellence",
+      title: "Culinary Excellence",
+      description: "Premium quality food and service for your events",
+    },
+  ];
+
   return (
     <div className="py-16 md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -93,6 +138,51 @@ export default function GallerySection() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Horizontal Scrolling Gallery Section */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h3 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Our Work
+            </h3>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Explore more of our beautifully executed events and culinary presentations
+            </p>
+          </div>
+
+          {/* Scrollable Container */}
+          <div
+            className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth py-4"
+            style={{
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+            }}
+          >
+            {publicImages.map((image, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-64 bg-card border border-border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="w-full h-auto">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-auto object-contain"
+                    style={{ maxHeight: "none" }}
+                  />
+                </div>
+                <div className="p-4 bg-card">
+                  <h4 className="font-serif text-lg font-bold text-foreground mb-2">
+                    {image.title}
+                  </h4>
+                  <p className="text-xs text-muted-foreground">
+                    {image.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {selectedImage !== null && (

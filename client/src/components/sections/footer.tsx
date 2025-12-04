@@ -102,7 +102,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                 <span className="text-muted-foreground text-sm">
-                  Serving across the region
+                Valluvally, N Paravur, Cochin
                 </span>
               </li>
             </ul>
