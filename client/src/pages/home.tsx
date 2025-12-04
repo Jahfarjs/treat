@@ -70,7 +70,7 @@ export default function Home() {
             >
               <img
                 src="/logo.png"
-                alt="Treat Caters & Events"
+                alt="Treat Cater & Events"
                 className="h-24 sm:h-28 pb-5 w-auto transition-opacity group-hover:opacity-80"
               />
             </button>
