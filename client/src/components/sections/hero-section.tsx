@@ -20,7 +20,7 @@ export default function HeroSection({ onCtaClick }: HeroSectionProps) {
           className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight"
           data-testid="text-hero-title"
         >
-          Treat Caters & Events
+          Treat Cater & Events
         </h1>
         <p
           className="text-xl sm:text-2xl md:text-3xl text-white/90 font-light mb-8 max-w-3xl mx-auto"
