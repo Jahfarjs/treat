@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "wouter";
 import { Menu, X, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import HeroSection from "@/components/sections/hero-section";
@@ -10,6 +11,7 @@ import ContactSection from "@/components/sections/contact-section";
 import Footer from "@/components/sections/footer";
 
 export default function Home() {
+  const [, setLocation] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -91,6 +93,20 @@ export default function Home() {
                 </button>
               ))}
               <Button
+                onClick={() => {
+                  setLocation("/food-menu");
+                }}
+                variant={isScrolled ? "outline" : "default"}
+                className={
+                  !isScrolled
+                    ? "bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20"
+                    : ""
+                }
+                data-testid="button-nav-food-menu"
+              >
+                Food Menu
+              </Button>
+              <Button
                 onClick={() => scrollToSection("contact")}
                 variant={isScrolled ? "default" : "outline"}
                 className={
@@ -133,6 +149,17 @@ export default function Home() {
                   {link.name}
                 </button>
               ))}
+              <Button
+                onClick={() => {
+                  setLocation("/food-menu");
+                  setIsMobileMenuOpen(false);
+                }}
+                className="w-full"
+                variant="outline"
+                data-testid="button-mobile-food-menu"
+              >
+                Food Menu
+              </Button>
               <Button
                 onClick={() => scrollToSection("contact")}
                 className="w-full"
